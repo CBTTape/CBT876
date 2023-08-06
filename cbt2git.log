@@ -1,0 +1,18 @@
+2023-08-06 08:09:56.885468 - Initialized conversion of CBT876
+2023-08-06 08:09:57.687451 - Received CBT.V505.FILE876.PDS from FILE876.XMI 
+2023-08-06 08:09:57.689939 - Found $$$#DATE.txt (text/plain) in CBT.V505.FILE876.PDS, moved to PDS/$$$#DATE
+2023-08-06 08:09:57.691132 - Found $$NOTE01.txt (text/plain) in CBT.V505.FILE876.PDS, moved to PDS/$$NOTE01
+2023-08-06 08:09:57.693398 - De-xmi-ed $ALGPDF to CBT876/docs/$ALGPDF.pdf
+2023-08-06 08:09:57.694395 - Found $PDSLOAD.jcl (text/plain) in CBT.V505.FILE876.PDS, moved to PDS/$PDSLOAD
+2023-08-06 08:09:57.694404 - Found #PDSLOAD.bin containing application/octet-stream, moved to PDS/#PDSLOAD
+2023-08-06 08:09:57.696266 - Found @FILE876.txt (text/plain) in CBT.V505.FILE876.PDS, moved to PDS/@FILE876
+2023-08-06 08:09:57.697564 - Found ALGCMASM.txt (text/plain) in CBT.V505.FILE876.PDS, moved to PDS/ALGCMASM
+2023-08-06 08:09:57.698623 - Found ALGCMCTL.txt (text/plain) in CBT.V505.FILE876.PDS, moved to PDS/ALGCMCTL
+2023-08-06 08:09:57.722062 - Found ALGCMLOD.xmi (application/xmit) in CBT.V505.FILE876.PDS
+2023-08-06 08:09:57.751782   - Received RECFM=U data, stored XMIT file as CBT876/ALGCMLOD.xmi
+2023-08-06 08:09:57.752803 - Found ALGCMMAC.txt (text/plain) in CBT.V505.FILE876.PDS, moved to PDS/ALGCMMAC
+2023-08-06 08:09:57.752815 - Found ALGOLAWS.bin containing application/octet-stream, moved to PDS/ALGOLAWS
+2023-08-06 08:09:57.756597 - Found ALGRUASM.txt (text/plain) in CBT.V505.FILE876.PDS, moved to PDS/ALGRUASM
+2023-08-06 08:09:57.807589 - Found ALGRULOD.xmi (application/xmit) in CBT.V505.FILE876.PDS
+2023-08-06 08:09:57.880506   - Received RECFM=U data, stored XMIT file as CBT876/ALGRULOD.xmi
+2023-08-06 08:09:57.881416 - Found ALGRUMAC.txt (text/plain) in CBT.V505.FILE876.PDS, moved to PDS/ALGRUMAC

@@ -1,0 +1,23 @@
+Building the Algol F Compiler and Algol F Library
+
+If the optional assembler source code libraries has been
+installed then the Algol F Compiler and the Algol F Library can
+be built from the installed source code libraries.
+
+The build process for the Algol F Compiler is a two step process.
+Member ASMCALL in the ALGOL.F.COMPILER.CNTL data set contains the
+JCL to assemble all of the Algol F Compiler assembler source
+modules into an object library. Member LINKC in the
+ALGOL.F.COMPILER.CNTL data set contains the JCL and the Linkage
+Editor control statements to Link Edit the Algol F Compiler
+object modules to create the Algol F Compiler load module
+library.
+
+The build process for the Algol F Library is similar to the build
+process for the Algol F Compiler in that it is a two step
+process. Member ASMRTALL in the ALGOL.F.COMPILER.CNTL data set
+contains the JCL to assemble all of the Algol F Library assembler
+source modules into an object library. Member LINKRT in the
+ALGOL.F.COMPILER.CNTL data set contains the JCL and the Linkage
+Editor control statements to Link Edit the Algol F Library object
+modules to create the Algol F Library load modules.
