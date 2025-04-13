@@ -1,0 +1,2385 @@
+./ ADD NAME=ALGOFC   0201-17365-17365-1200-00019-00019-00000-RELEASE 00
+//*
+//*********************************************************************
+//*
+//*       IBM ALGOL F LEVEL 2.1
+//*
+//*       360S-AL-531 ALGOL F COMPILER
+//*
+//*       COMPILE A PROGRAM
+//*
+//*********************************************************************
+//*
+//ALGOL   EXEC PGM=ALGOL,REGION=1024K
+//SYSPRINT DD  SYSOUT=*
+//SYSPUNCH DD  DUMMY
+//SYSLIN   DD  DSN=&&OBJECT,UNIT=VIO,SPACE=(3200,(20,10)),
+//             DISP=(,PASS)
+//SYSUT1   DD  UNIT=VIO,SPACE=(2048,(50,10))
+//SYSUT2   DD  UNIT=VIO,SPACE=(2048,(50,10))
+//SYSUT3   DD  UNIT=VIO,SPACE=(2048,(40,10))
+./ ADD NAME=ALGOFCG  0201-17365-17365-1200-00028-00028-00000-RELEASE 00
+//*
+//*********************************************************************
+//*
+//*       IBM ALGOL F LEVEL 2.1
+//*
+//*       360S-AL-531 ALGOL F COMPILER
+//*            AND
+//*       360S-LM-532 ALGOL F LIBRARY
+//*
+//*       COMPILE AND EXECUTE A PROGRAM
+//*
+//*********************************************************************
+//*
+//ALGOL   EXEC PGM=ALGOL,REGION=1024K
+//SYSPRINT DD  SYSOUT=*
+//SYSPUNCH DD  DUMMY
+//SYSLIN   DD  DSN=&&OBJECT,UNIT=VIO,SPACE=(3200,(20,10)),
+//             DISP=(,PASS)
+//SYSUT1   DD  UNIT=VIO,SPACE=(2048,(50,10))
+//SYSUT2   DD  UNIT=VIO,SPACE=(2048,(50,10))
+//SYSUT3   DD  UNIT=VIO,SPACE=(2048,(40,10))
+//GO      EXEC PGM=LOADER,PARM='MAP,LET,PRINT',COND=(5,LT,ALGOL)
+//SYSLIN   DD  DSN=&&OBJECT,DISP=(OLD,DELETE)
+//SYSLIB   DD  DSN=SYS1.ALGLIB,DISP=SHR
+//SYSLOUT  DD  SYSOUT=*
+//SYSPRINT DD  SYSOUT=*
+//ALGLDD01 DD  SYSOUT=*
+//SYSUT1   DD  UNIT=VIO,SPACE=(1024,(20,10))
+./ ADD NAME=ALGOFCL  0201-17365-17365-1200-00030-00030-00000-RELEASE 00
+//*
+//*********************************************************************
+//*
+//*       IBM ALGOL F LEVEL 2.1
+//*
+//*       360S-AL-531 ALGOL F COMPILER
+//*            AND
+//*       360S-LM-532 ALGOL F LIBRARY
+//*
+//*       COMPILE AND LINK-EDIT A PROGRAM
+//*
+//*********************************************************************
+//*
+//ALGOL   EXEC PGM=ALGOL,REGION=1024K
+//SYSPRINT DD  SYSOUT=*
+//SYSPUNCH DD  DUMMY
+//SYSLIN   DD  DSN=&&OBJECT,UNIT=VIO,SPACE=(3200,(20,10)),
+//             DISP=(,PASS)
+//SYSUT1   DD  UNIT=VIO,SPACE=(2048,(50,10))
+//SYSUT2   DD  UNIT=VIO,SPACE=(2048,(50,10))
+//SYSUT3   DD  UNIT=VIO,SPACE=(2048,(40,10))
+//LKED    EXEC PGM=IEWL,PARM='XREF,LIST,LET',COND=(5,LT,ALGOL),
+//             REGION=1024K
+//SYSPRINT DD  SYSOUT=*
+//SYSLIB   DD  DSN=SYS1.ALGLIB,DISP=SHR
+//SYSLMOD  DD  DSN=&&GOSET(GO),UNIT=VIO,DISP=(,PASS),
+//             SPACE=(2048,(100,20,1))
+//SYSUT1   DD  UNIT=VIO,SPACE=(2048,(100,20))
+//SYSLIN   DD  DSN=&&OBJECT,DISP=(OLD,DELETE)
+//         DD  DDNAME=SYSIN
+./ ADD NAME=ALGOFCLG 0201-17365-17365-1200-00036-00036-00000-RELEASE 00
+//*
+//*********************************************************************
+//*
+//*       IBM ALGOL F LEVEL 2.1
+//*
+//*       360S-AL-531 ALGOL F COMPILER
+//*            AND
+//*       360S-LM-532 ALGOL F LIBRARY
+//*
+//*       COMPILE, LINK-EDIT AND EXECUTE A PROGRAM
+//*
+//*********************************************************************
+//*
+//ALGOL   EXEC PGM=ALGOL,REGION=1024K
+//SYSPRINT DD  SYSOUT=*
+//SYSPUNCH DD  DUMMY
+//SYSLIN   DD  DSN=&&OBJECT,UNIT=VIO,SPACE=(3200,(20,10)),
+//             DISP=(,PASS)
+//SYSUT1   DD  UNIT=VIO,SPACE=(2048,(50,10))
+//SYSUT2   DD  UNIT=VIO,SPACE=(2048,(50,10))
+//SYSUT3   DD  UNIT=VIO,SPACE=(2048,(40,10))
+//LKED    EXEC PGM=IEWL,PARM='XREF,LIST,LET',COND=(5,LT,ALGOL),
+//             REGION=1024K
+//SYSPRINT DD  SYSOUT=*
+//SYSLIB   DD  DSN=SYS1.ALGLIB,DISP=SHR
+//SYSLMOD  DD  DSN=&&GOSET(GO),UNIT=VIO,DISP=(,PASS),
+//             SPACE=(2048,(100,20,1))
+//SYSUT1   DD  UNIT=VIO,SPACE=(2048,(100,20))
+//SYSLIN   DD  DSN=&&OBJECT,DISP=(OLD,DELETE)
+//         DD  DDNAME=SYSIN
+//GO      EXEC PGM=GO,COND=((5,LT,ALGOL),(5,LT,LKED)),
+//             REGION=1024K
+//STEPLIB  DD  DSN=&&GOSET,DISP=(OLD,PASS)
+//ALGLDD01 DD  SYSOUT=*
+//SYSPRINT DD  SYSOUT=*
+//SYSUT1   DD  UNIT=VIO,SPACE=(1024,(20,10))
+./ ADD NAME=ASMCALL  0201-17365-17365-1200-00155-00155-00000-RELEASE 00
+//T1ACM   JOB  111,'ASM ALGOL F',      <-- CUSTOMIZE FOR INSTALLATION
+//             CLASS=S,MSGCLASS=C      <-- CUSTOMIZE FOR INSTALLATION
+//*
+//*********************************************************************
+//*                                                                   *
+//*              ASSEMBLE THE ALGOL F COMPILER                        *
+//*                                                                   *
+//*********************************************************************
+//*
+//*********************************************************************
+//*
+//*      DELETE AND ALLOCATE THE OBJECT LIBRARY FOR THE ALGOL F
+//*      COMPILER
+//*
+//*********************************************************************
+//*
+//DELETE   EXEC PGM=IDCAMS
+//SYSPRINT  DD DUMMY
+//SYSIN     DD *
+        DELETE ALGOL.F.COMPILER.OBJ
+        SET LASTCC = 0
+/*
+//ALLOC    EXEC PGM=IEFBR14
+//OBJ       DD DSN=ALGOL.F.COMPILER.OBJ,
+//             UNIT=3350,VOL=SER=MVSDLB,
+//             SPACE=(TRK,(30,30,5)),
+//             DCB=(RECFM=FB,LRECL=80,BLKSIZE=3200),
+//             DISP=(,CATLG)
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F COMPILER OPTIONS MODULE
+//*
+//*********************************************************************
+//*
+//OPTIONS EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.COMPILER',M=OPTIONS,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F COMPILER MODULE IEX00
+//*
+//*********************************************************************
+//*
+//IEX00   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.COMPILER',M=IEX00,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F COMPILER MODULE IEX10
+//*
+//*********************************************************************
+//*
+//IEX10   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.COMPILER',M=IEX10,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F COMPILER MODULE IEX11
+//*
+//*********************************************************************
+//*
+//IEX11   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.COMPILER',M=IEX11,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F COMPILER MODULE IEX20
+//*
+//*********************************************************************
+//*
+//IEX20   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.COMPILER',M=IEX20,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F COMPILER MODULE IEX21
+//*
+//*********************************************************************
+//*
+//IEX21   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.COMPILER',M=IEX21,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F COMPILER MODULE IEX21M
+//*
+//*********************************************************************
+//*
+//IEX21M  EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.COMPILER',M=IEX21M,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F COMPILER MODULE IEX30
+//*
+//*********************************************************************
+//*
+//IEX30   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.COMPILER',M=IEX30,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F COMPILER MODULE IEX31
+//*
+//*********************************************************************
+//*
+//IEX31   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.COMPILER',M=IEX31,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F COMPILER MODULE IEX31M
+//*
+//*********************************************************************
+//*
+//IEX31M  EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.COMPILER',M=IEX31M,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F COMPILER MODULE IEX40
+//*
+//*********************************************************************
+//*
+//IEX40   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.COMPILER',M=IEX40,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        BUILD ALGOL F COMPILER MODULE IEX50
+//*
+//*********************************************************************
+//*
+//IEX50   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.COMPILER',M=IEX50,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F COMPILER MODULE IEX51
+//*
+//*********************************************************************
+//*
+//IEX51   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.COMPILER',M=IEX51,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F COMPILER MODULE IEX51M
+//*
+//*********************************************************************
+//*
+//IEX51M  EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.COMPILER',M=IEX51M,
+//             SOUT='A'
+//
+./ ADD NAME=ASMPROJ  0201-17365-17365-1200-00036-00036-00000-RELEASE 00
+//ASMPROJ  PROC M=MISSING,              /* SOURCE MODULE            */ C
+//             HLQ=MISSING,             /* HI-LEVEL QUALIFIER       */ C
+//             SOUT='*',                /* SYSOUT CLASS             */ C
+//             PROJECT=MISSING          /* IDENTIFY PROJECT         */
+//*
+//*********************************************************************
+//*
+//*       ASSEMBLE - PROJECT MODULES
+//*
+//*********************************************************************
+//*
+//*
+//*       ASSEMBLE MODULE
+//*
+//ASM     EXEC PGM=IFOX00,REGION=4096K,
+//             PARM='OBJ,LINECNT=96'
+//SYSLIB   DD  DSN=&HLQ..&PROJECT..MACLIB,DISP=SHR
+//         DD  DSN=&HLQ..&PROJECT..ASM,DISP=SHR
+//         DD  DSN=SYS1.MACLIB,DISP=SHR
+//         DD  DSN=SYS1.AMODGEN,DISP=SHR
+//SYSPRINT DD  SYSOUT=&SOUT
+//SYSTERM  DD  SYSOUT=&SOUT
+//SYSUT1   DD  UNIT=VIO,SPACE=(1700,(800,50))
+//SYSUT2   DD  UNIT=VIO,SPACE=(1700,(800,50))
+//SYSUT3   DD  UNIT=VIO,SPACE=(1700,(800,50))
+//SYSGO    DD  DSN=&&OBJECT,UNIT=VIO,SPACE=(3200,(100,50)),
+//             DISP=(MOD,PASS),DCB=(RECFM=FB,BLKSIZE=3200,LRECL=80)
+//SYSIN    DD  DSN=&HLQ..&PROJECT..ASM(&M),DISP=SHR
+//SYSPUNCH DD  DUMMY
+//*
+//*       INITIALIZE OBJECT
+//*
+//INITOBJ EXEC PGM=INITOBJ,COND=(8,LT,ASM)
+//REPORT   DD  SYSOUT=&SOUT
+//SYSUT1   DD  DSN=&&OBJECT,DISP=(OLD,DELETE)
+//SYSUT2   DD  DSN=&HLQ..&PROJECT..OBJ(&M),DISP=OLD
+./ ADD NAME=ASMRTALL 0201-17365-17365-1200-00342-00342-00000-RELEASE 00
+//T1ART   JOB  111,'ASM ALGOL F RT',   <-- CUSTOMIZE FOR INSTALLATION
+//             CLASS=S,MSGCLASS=C      <-- CUSTOMIZE FOR INSTALLATION
+//*
+//*********************************************************************
+//*                                                                   *
+//*              ASSEMBLE THE ALGOL F RUNTIME LIBRARY                *
+//*                                                                   *
+//*********************************************************************
+//*
+//*********************************************************************
+//*
+//*      DELETE AND ALLOCATE THE OBJECT LIBRARY FOR THE ALGOL F
+//*      RUN TIME LIBRARY
+//*
+//*********************************************************************
+//*
+//DELETE   EXEC PGM=IDCAMS
+//SYSPRINT  DD DUMMY
+//SYSIN     DD *
+        DELETE ALGOL.F.RUNTIME.OBJ
+        SET LASTCC = 0
+/*
+//ALLOC    EXEC PGM=IEFBR14
+//OBJ       DD DSN=ALGOL.F.RUNTIME.OBJ,
+//             UNIT=3350,VOL=SER=MVSDLB,
+//             SPACE=(CYL,(2,1,5)),
+//             DCB=(RECFM=FB,LRECL=80,BLKSIZE=3200),
+//             DISP=(,CATLG)
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIERM
+//*
+//*********************************************************************
+//*
+//IHIERM   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIERM,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIERR
+//*
+//*********************************************************************
+//*
+//IHIERR   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIERR,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIFDD
+//*
+//*********************************************************************
+//*
+//IHIFDD   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIFDD,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIFDI
+//*
+//*********************************************************************
+//IHIFDI   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIFDI,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIFII
+//*
+//*********************************************************************
+//IHIFII   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIFII,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIFRI
+//*
+//*********************************************************************
+//IHIFRI   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIFRI,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIFRR
+//*
+//*********************************************************************
+//IHIFRR   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIFRR,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIFSA
+//*
+//*********************************************************************
+//IHIFSA   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIFSA,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F LIBRARY MODULE IHIGPR
+//*
+//*********************************************************************
+//IHIGPR   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIGPR,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIIAR
+//*
+//*********************************************************************
+//IHIIAR   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIIAR,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIIBA
+//*
+//*********************************************************************
+//IHIIBA   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIIBA,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIIBO
+//*
+//*********************************************************************
+//IHIIBO   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIIBO,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIIDE
+//*
+//*********************************************************************
+//IHIIDE   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIIDE,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIIOR
+//*
+//*********************************************************************
+//*
+//IHIIOR   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIIOR,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIISY
+//*
+//*********************************************************************
+//*
+//IHIISY   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIISY,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHILAT
+//*
+//*********************************************************************
+//*
+//IHILAT   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHILAT,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHILEX
+//*
+//*********************************************************************
+//*
+//IHILEX   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHILEX,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHILLO
+//*
+//*********************************************************************
+//*
+//IHILLO   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHILLO,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHILOR
+//*
+//*********************************************************************
+//*
+//IHILOR   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHILOR,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHILSC
+//*
+//*********************************************************************
+//*
+//IHILSC   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHILSC,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHILSQ
+//*
+//*********************************************************************
+//*
+//IHILSQ   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHILSQ,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIOAR
+//*
+//*********************************************************************
+//*
+//IHIOAR   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIOAR,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIOBA
+//*
+//*********************************************************************
+//*
+//IHIOBA   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIOBA,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIOBO
+//*
+//*********************************************************************
+//*
+//IHIOBO   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIOBO,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIOIN
+//*
+//*********************************************************************
+//*
+//IHIOIN   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIOIN,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIOST
+//*
+//*********************************************************************
+//*
+//IHIOST   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIOST,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIOSY
+//*
+//*********************************************************************
+//*
+//IHIOSY   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIOSY,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIOTA
+//*
+//*********************************************************************
+//*
+//IHIOTA   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIOTA,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHIPTT
+//*
+//*********************************************************************
+//*
+//IHIPTT   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHIPTT,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHISAT
+//*
+//*********************************************************************
+//*
+//IHISAT   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHISAT,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHISEX
+//*
+//*********************************************************************
+//*
+//IHISEX   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHISEX,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHISLO
+//*
+//*********************************************************************
+//*
+//IHISLO   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHISLO,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHISOR
+//*
+//*********************************************************************
+//*
+//IHISOR   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHISOR,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHISSC
+//*
+//*********************************************************************
+//*
+//IHISSC   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHISSC,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHISSQ
+//*
+//*********************************************************************
+//*
+//IHISSQ   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHISSQ,
+//             SOUT='A'
+//*
+//*********************************************************************
+//*
+//*        ASSEMBLE ALGOL F RUN TIME LIBRARY MODULE IHISYS
+//*
+//*********************************************************************
+//IHISYS   EXEC ASMPROJ,HLQ=ALGOL,PROJECT='F.RUNTIME',M=IHISYS,
+//             SOUT='A'
+//
+./ ADD NAME=BLDDIST  0201-17365-17365-1200-00070-00070-00000-RELEASE 00
+//T1COP JOB 111,T1,CLASS=S,MSGCLASS=C
+//*
+//*       MANUFACTURE THE DISTRIBUTION TAPE FOR
+//*
+//*       IBM ALGOL F
+//*
+//*       360S-AL-531 ALGOL F COMPILER
+//*            AND
+//*       360S-LM-532 ALGOL F RUN TIME LIBRARY
+//*
+//*
+//*       UNLOAD THE DISTRIBUTION DATA SETS ON TO THE TAPE ALGOLF
+//*
+//ALGOLF  EXEC PGM=IEBCOPY
+//SYSPRINT DD  SYSOUT=*
+//*
+//*        DEVELOPMENT LIBRARIES
+//*
+//INCCNTL  DD  DSN=ALGOL.F.COMPILER.CNTL,DISP=SHR
+//INCMOD   DD  DSN=ALGOL.F.COMPILER.LOADLIB,DISP=SHR
+//INRTMOD  DD  DSN=ALGOL.F.RUNTIME.LOADLIB,DISP=SHR
+//INCASM   DD  DSN=ALGOL.F.COMPILER.ASM,DISP=SHR
+//INCMAC   DD  DSN=ALGOL.F.COMPILER.MACLIB,DISP=SHR
+//INRTASM  DD  DSN=ALGOL.F.RUNTIME.ASM,DISP=SHR
+//INRTMAC  DD  DSN=ALGOL.F.RUNTIME.MACLIB,DISP=SHR
+//*
+//*        DISTRIBUTION TAPE LIBRARIES
+//*
+//OUTCCNTL DD  DSN=ALGOL.F.COMPILER.CNTL,
+//             UNIT=3400-6,VOL=SER=ALGOLF,DISP=(,PASS),LABEL=(1,SL)
+//OUTCMOD  DD  DSN=ALGOL.F.COMPILER.LOADLIB,
+//             UNIT=3400-6,VOL=SER=ALGOLF,DISP=(,PASS),LABEL=(2,SL)
+//OUTRTMOD DD  DSN=ALGOL.F.RUNTIME.LOADLIB,
+//             UNIT=3400-6,VOL=SER=ALGOLF,DISP=(,PASS),LABEL=(3,SL)
+//OUTCASM  DD  DSN=ALGOL.F.COMPILER.ASM,
+//             UNIT=3400-6,VOL=SER=ALGOLF,DISP=(,PASS),LABEL=(4,SL)
+//OUTCMAC  DD  DSN=ALGOL.F.COMPILER.MACLIB,
+//             UNIT=3400-6,VOL=SER=ALGOLF,DISP=(,PASS),LABEL=(5,SL)
+//OUTRTASM DD  DSN=ALGOL.F.RUNTIME.ASM,
+//             UNIT=3400-6,VOL=SER=ALGOLF,DISP=(,PASS),LABEL=(6,SL)
+//OUTRTMAC DD  DSN=ALGOL.F.RUNTIME.MACLIB,
+//             UNIT=3400-6,VOL=SER=ALGOLF,DISP=(,PASS),LABEL=(7,SL)
+//SYSIN    DD  *
+    COPY INDD=INCCNTL,OUTDD=OUTCCNTL
+    SELECT MEMBER=(ALGOFC)
+    SELECT MEMBER=(ALGOFCG)
+    SELECT MEMBER=(ALGOFCL)
+    SELECT MEMBER=(ALGOFCLG)
+    SELECT MEMBER=(ASMPROJ)
+    SELECT MEMBER=(ASMCALL)
+    SELECT MEMBER=(ASMRTALL)
+    SELECT MEMBER=(BLDDIST)
+    SELECT MEMBER=(IEXOPTNS)
+    SELECT MEMBER=(IEXSAMP1)
+    SELECT MEMBER=(IEXSAMP2)
+    SELECT MEMBER=(IEXSAMP3)
+    SELECT MEMBER=(IEXSAMP4)
+    SELECT MEMBER=(INSTALL)
+    SELECT MEMBER=(INSTCNTL)
+    SELECT MEMBER=(INSTOPT)
+    SELECT MEMBER=(LINKC)
+    SELECT MEMBER=(LINKRT)
+    COPY INDD=INCMOD,OUTDD=OUTCMOD
+    COPY INDD=INRTMOD,OUTDD=OUTRTMOD
+    COPY INDD=INCASM,OUTDD=OUTCASM
+    COPY INDD=INCMAC,OUTDD=OUTCMAC
+    COPY INDD=INRTASM,OUTDD=OUTRTASM
+    COPY INDD=INRTMAC,OUTDD=OUTRTMAC
+/*
+//
+./ ADD NAME=IEXOPTNS 0201-17365-17365-1200-00058-00058-00000-RELEASE 00
+//T1ACO   JOB  111,'ALGOL F LVL2.1',   <-- CUSTOMIZE FOR SITE STANDARDS
+//             CLASS=S,MSGCLASS=C,     <-- CUSTOMIZE FOR SITE STANDARDS
+//             REGION=1024K,COND=(0,NE),MSGLEVEL=(1,1)
+//*
+//*       IBM Algol F Level 2.1
+//*
+//*       360S-AL-531 Algol F Compiler
+//*
+//*       Set Compiler Default Options
+//*
+//SETOPTS EXEC PGM=AMASPZAP
+//SYSPRINT DD  SYSOUT=*
+//SYSLIB   DD  DSN=SYS2.LINKLIB,DISP=SHR
+//SYSIN    DD  *
+*
+*          Set Algol F Level 2.1 Compiler Default Options
+*
+*          For a complete explanation of the Options refer to -
+*
+*          GC28-6554-13 OS System Generation Release 21.8
+*                       and
+*          GC33-4000-00 Algol Programmers Guide
+*
+*          Option                    POSITION
+*                                    BYTE 0    BYTE 1
+*          Bit Settings              01234567  01234567
+*
+*          Internal Compiler Use     0
+*          Internal Compiler Use      0
+*          Internal Compiler Use       0
+*          Internal Compiler Use        0
+*          Internal Compiler Use         0
+*          Internal Compiler Use          0
+*          LONG/SHORT PRECISION            0              0 = SHORT
+*          Internal Compiler Use            0
+*
+*          NOSOURCE/SOURCE                     0          0 = SOURCE
+*          NOLOAD/LOAD                          0         0 = LOAD
+*          NODECK/DECK                           1        1 = NODECK
+*          ISO/EBCDIC                             0       0 = EBCDIC
+*          Internal Compiler Use                   0
+*          Internal Compiler Use                    0
+*          Internal Compiler Use                     1
+*          Internal Compiler Use                      0
+*
+*          Verify Default settings of -
+*          PRECISN=SHORT
+*          SORLIST=SOURCE
+*          TYPERUN=LOAD
+*          PUNCH=NODECK
+*          SORCODE=EBCDIC
+*
+           NAME IEX00 IEX00001
+           VER  80    0022        Verify Default Settings
+           REP  80    0022        <- Change options
+           IDRDATA    IEXOPTNS
+/*
+//
+./ ADD NAME=IEXSAMP1 0201-17365-17365-1200-00077-00077-00000-RELEASE 00
+//T1IV1   JOB  111,'ALGOL F LVL2.1',   <-- CUSTOMIZE FOR SITE STANDARDS
+//             CLASS=S,MSGCLASS=C,     <-- CUSTOMIZE FOR SITE STANDARDS
+//             REGION=1024K,COND=(0,NE),MSGLEVEL=(1,1)
+//*
+//*       IBM Algol F Level 2.1 IVP
+//*
+//*       360S-AL-531 Algol F Compiler
+//*            and
+//*       360S-LM-532 Algol F Library
+//*
+//IVP1   EXEC  ALGOFCLG,PARM.GO='TRACE'
+//ALGOL.SYSIN  DD  *
+     'BEGIN'
+      'COMMENT' TEST PROGRAM Q09
+                MODIFIED FOR IBM ALGOL F LEVEL 2.1 IVP
+
+                GENERATE AND PRINTS THE FIRST TWENTY
+                LINES OF PASCALS TRIANGLE
+
+          THE K TH ELEMENT P(K,J) OF THE J TH LINE SHOULD BE
+          EQUAL TO THE SUM OF P(K-1,J-1) AND P(K,J-1) FOR K ¬= 0
+          AND K ¬= J. P(0,J)=P(J,J)=1
+          THUS BY ADDING TWO BY TWO ALL ELEMENTS IN ONE LINE
+          PLACING EACH SUM BELOW AND BETWEEN THE TWO ELEMENTS THE
+          NEXT LINE OF PASCALS TRIANGLE COULD BE EXPANDED ;
+
+     'INTEGER' l,k,n,i,m,Powerten;
+     'INTEGER' 'ARRAY' aÝ0:19¨;
+     'BOOLEAN' c;
+     SYSACT(1,6,120);
+     SYSACT(1,8,62);
+     SYSACT(1,12,1);
+     SYSACT(1,2,56);
+     OUTSTRING (1,'('Pascals Triangle')');
+     'FOR' l := 0 'STEP' 1 'UNTIL' 19 'DO'
+      'BEGIN'
+       SYSACT(1,14,3);
+       'IF' l < 19 'THEN'
+         SYSACT(1,2,58-3*l);
+       aÝl¨ := 1;
+       'FOR' k := l-1 'STEP' -1 'UNTIL' 1 'DO'
+        aÝk¨ := aÝk-1¨ + aÝk¨;
+        'FOR' K :=0 'STEP' 1 'UNTIL' L 'DO'
+         'BEGIN'
+          c := 'TRUE';
+          m := aÝk¨;
+          'FOR' I := 5 'STEP' -1 'UNTIL' 0 'DO'
+           'BEGIN'
+             Powerten := 10 ** I;
+             n := m '/' Powerten;
+             m := m-n * Powerten;
+             'IF' n 'EQUAL' 0 'THEN'
+              'BEGIN'
+               'IF' c 'THEN' OUTSYMBOL (1,'(' ')',1)
+                 'ELSE' OUTSYMBOL (1,'('0')',1);
+              'END'
+               'ELSE'
+                'BEGIN'
+                 c := 'FALSE';
+                 OUTSYMBOL(1,'('123456789')',N);
+                'END'
+           'END'
+         'END'
+      'END'
+     'END'
+/*
+//AMBLIST  EXEC PGM=AMBLIST
+//*
+//*        DEMONSTRATE LANGUAGE TRANSLATOR ID FOR ALGOL F
+//*        PROGRAMS AND TIME OF COMPILATION
+//*
+//SYSPRINT  DD  SYSOUT=*
+//SYSLIB    DD  DSN=&&GOSET,DISP=(OLD,PASS)
+//SYSIN     DD  *
+        LISTIDR  MEMBER=GO
+/*
+//
+./ ADD NAME=IEXSAMP2 0201-17365-17365-1200-00050-00050-00000-RELEASE 00
+//T1IV2   JOB  111,'ALGOL F LVL2.1',   <-- CUSTOMIZE FOR SITE STANDARDS
+//             CLASS=S,MSGCLASS=C,     <-- CUSTOMIZE FOR SITE STANDARDS
+//             REGION=1024K,COND=(0,NE),MSGLEVEL=(1,1)
+//*
+//*       IBM ALGOL F LEVEL 2.1 IVP
+//*
+//*       360S-AL-531 ALGOL F COMPILER
+//*            AND
+//*       360S-LM-532 ALGOL F LIBRARY
+//*
+//IVP2   EXEC  ALGOFCLG,PARM.GO='TRACE,DUMP'
+//ALGOL.SYSIN  DD  *
+      'BEGIN'
+      'COMMENT'
+       IBM ALGOL F LEVEL 2.1 IVP
+       SAMPLE PROGRAM TO CREATE DELIBERATE DIVIDE BY ZERO ERROR
+       TO DEMONSTRATE ALGOL RUN TIME DIAGNOSTIC INFORMATION;
+
+      'INTEGER' I;
+      'REAL' A;
+      'BOOLEAN' B;
+      'INTEGER' 'ARRAY' IAÝ1:5¨;
+      'ARRAY' ARÝ0:3,2:8¨;
+      'BOOLEAN' 'ARRAY' BAÝ0:1,1:3,3:7¨;
+      'INTEGER' 'PROCEDURE' IP;
+      IP := I + 5;
+      'REAL' 'PROCEDURE' RP(A);
+      'VALUE' A;
+      'INTEGER' A;
+      RP := A*A;
+      'PROCEDURE' P(A,B,C);
+      'BOOLEAN' A;
+      'REAL' B;
+      'INTEGER' C;
+      A:= B < C ;
+      I := 1;
+      A := 2.6;
+      ARÝ1,1¨ := IP;
+      ARÝ1,2¨ := RP(ARÝ1,1¨);
+      P(BAÝ0,1,3¨,A,I);
+      P(B,ARÝ1,2¨,IP);
+      SYSACT(1,8,50);
+      OUTREAL(1,ARÝ1,1¨);
+      OUTBOOLEAN(1,BAÝ0,1,3¨);
+      OUTBOOLEAN(1,B);
+      'COMMENT' DELIBERATE DIVIDE BY ZERO ERROR;
+      A := A/0;
+      'END'
+/*
+//
+./ ADD NAME=IEXSAMP3 0201-17365-17365-1200-00093-00093-00000-RELEASE 00
+//T1IV3   JOB  111,'ALGOL F LVL2.1',   <-- CUSTOMIZE FOR SITE STANDARDS
+//             CLASS=S,MSGCLASS=C,     <-- CUSTOMIZE FOR SITE STANDARDS
+//             REGION=8500K,COND=(0,NE),MSGLEVEL=(1,1)
+//*
+//*       IBM ALGOL F LEVEL 2.1 IVP
+//*
+//*       360S-AL-531 ALGOL F COMPILER
+//*            AND
+//*       360S-LM-532 ALGOL F LIBRARY
+//*
+//IVP3   EXEC  ALGOFCLG
+//ALGOL.SYSIN  DD  *
+ 'BEGIN'
+ 'COMMENT'
+ //////////////////////////////////////////////////////////
+ // NAME: PETER M. MAURER
+ // PROGRAM: SIEVE OF ERATOSTHENES
+ // DUE: NEVER
+ // LANGUAGE: ALGOL 60 ALA IBM 360
+ //
+ // Changes:
+ // - Juergen Winkelmann, 2014/07/12, Performance and Output
+ // Optimization
+ //////////////////////////////////////////////////////////
+ ;
+ 'COMMENT' DEFINE THE SIEVE DATA STRUCTURE ;
+ 'BOOLEAN' 'ARRAY' CANDIDATESÝ0:8400000¨;
+ 'INTEGER' I,J,K,LIMIT;
+ 'COMMENT' SET LINE-LENGTH=120,SET LINES-PER-PAGE=62,OPEN;
+ SYSACT(1,6,120);
+ SYSACT(1,8,62);
+ SYSACT(1,12,1);
+ ININTEGER(0,LIMIT);
+ 'FOR' I := 0 'STEP' 1 'UNTIL' LIMIT 'DO'
+ 'BEGIN'
+ 'COMMENT' EVERYTHING IS POTENTIALLY PRIME
+ UNTIL PROVEN OTHERWISE ;
+ CANDIDATESÝI¨ := 'TRUE';
+ 'END';
+ 'COMMENT' NEITHER 1 NOR 0 IS PRIME, SO FLAG THEM OFF ;
+ CANDIDATESÝ0¨ := 'FALSE';
+ CANDIDATESÝ1¨ := 'FALSE';
+ 'COMMENT' START THE SIEVE WITH THE INTEGER 0 ;
+ I := 0;
+ K := 0;
+ 'FOR' I := I 'WHILE' K 'LESS' LIMIT 'DO'
+ 'BEGIN'
+ 'COMMENT' ADVANCE TO THE NEXT UN-CROSSED OUT. ;
+ 'COMMENT' THIS NUMBER MUST BE A PRIME;
+ 'FOR' I := I 'WHILE' K 'LESS' LIMIT
+ 'AND' 'NOT' CANDIDATESÝI¨ 'DO'
+ 'BEGIN'
+ I := I+1;
+ K := I*I;
+ 'END';
+ 'COMMENT' INSURE AGAINST RUNNING OFF THE END;
+ 'IF' K 'LESS' LIMIT 'THEN'
+ 'BEGIN'
+ 'COMMENT' CROSS OUT ALL MULTIPLES OF THE PRIME.;
+ 'FOR' K := K 'WHILE' K 'LESS' LIMIT 'DO'
+ 'BEGIN'
+ CANDIDATESÝK¨ := 'FALSE';
+ K := K+I;
+ 'END';
+ 'COMMENT' ADVANCE TO THE NEXT CANDIDATE ;
+ I := I+1;
+ K := I*I;
+ 'END'
+ 'END';
+ 'COMMENT' ALL UNCROSSED OUT NUMBERS ARE PRIME;
+ 'COMMENT' PRINT ALL PRIMES ;
+ J := 0;
+ K := 0;
+ 'FOR' I := 0 'STEP' 1 'UNTIL' LIMIT-1 'DO'
+ 'BEGIN'
+ 'IF' CANDIDATESÝI¨ 'THEN'
+ 'BEGIN'
+ J := J + 1;
+ K := K + 1;
+ OUTINTEGER(1,I);
+ 'IF' J 'EQUAL' 9 'THEN' J := 0;
+ 'END';
+ 'END';
+ 'IF' J 'NOTEQUAL' 0 'THEN' SYSACT(1,14,1);
+ SYSACT(1,14,1);
+ OUTINTEGER(1,K);
+ OUTSTRING(1,'(' primes found')');
+ SYSACT(1,14,1);
+ 'END'
+/*
+//GO.SYSIN  DD *
+  100000
+/*
+./ ADD NAME=IEXSAMP4 0201-17365-17365-1200-00888-00888-00000-RELEASE 00
+//T1IV4   JOB  111,'ALGOL F LVL2.1',   <-- CUSTOMIZE FOR SITE STANDARDS
+//             CLASS=S,MSGCLASS=C,     <-- CUSTOMIZE FOR SITE STANDARDS
+//             REGION=1024K,COND=(0,NE),MSGLEVEL=(1,1)
+//*
+//*       IBM Algol F Level 2.1 IVP
+//*
+//*       360S-AL-531 Algol F Compiler
+//*            and
+//*       360S-LM-532 Algol F Library
+//*
+//IVP4    EXEC ALGOFCL
+//ALGOL.SYSIN  DD  *
+    'BEGIN'
+    'COMMENT'  Basic Statement Times for Algol 60
+               B A Wichmann
+               National Physics laboratory
+               Teddington, Middlesex
+               November 1973;
+
+    'COMMENT'  Modified for IBM Algol F Level 2.1 IVP
+               This program will execute for aproximately 4 minutes
+               on an MVS 3.8 system running on a Hercules 3.07
+               system averaging 25 mips.
+
+               Timings are guidelines only due to the PC, Windows
+               and the Hercules timer implementations and will
+               therefore vary for each execution;
+
+    'REAL' x, y, z;
+    'INTEGER' i, j, n, k, l, m, case;
+    'INTEGER' 'ARRAY' e1Ý1:1¨, e2Ý1:1,1:1¨, e3Ý1:1,1:1,1:1¨;
+
+    'PROCEDURE' p0;
+       ;
+
+    'PROCEDURE' p1(x);
+       'VALUE' x;
+       'REAL' x;
+       ;
+
+    'PROCEDURE' p2(x,y);
+       'VALUE' x, y;
+       'REAL' x, y;
+       ;
+
+    'PROCEDURE' p3(x,y,z);
+       'VALUE' x, y, z;
+       'REAL' x, y, z;
+       ;
+
+    'INTEGER' 'ARRAY' #TTÝ1:43¨;
+
+    'PROCEDURE' printt;
+         'BEGIN'
+              'INTEGER' i;
+              'REAL' x, mix, loop;
+              'COMMENT' calculate time differences;
+              'FOR' i := 43 'STEP' -1 'UNTIL' 2 'DO'
+                   'BEGIN'
+                        #TTÝi¨ := #TTÝi¨ - #TTÝi-1¨;
+                        'COMMENT' subtract previous accum cpu time
+                                  to derive case timing;
+                   'END';
+              'FOR' i := 2 'STEP'  1 'UNTIL' 42 'DO'
+                   'BEGIN'
+                        #TTÝi¨ := (#TTÝi¨ - #TTÝ43¨)/ ((n * 10)/1000);
+                        'COMMENT' subtract loop overhead and
+                                  convert to picroseconds;
+                   'END';
+              'COMMENT' Print results;
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ2¨);
+              OUTSTRING(1,'('x := 1.0 ')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ3¨);
+              OUTSTRING(1,'('x := 1 ')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ4¨);
+              OUTSTRING(1,'('x := y ')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ5¨);
+              OUTSTRING(1,'('x := y + z')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ6¨);
+              OUTSTRING(1,'('x := y * z')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ7¨);
+              OUTSTRING(1,'('x := y / z')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ8¨);
+              OUTSTRING(1,'('k := 1')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ9¨);
+              OUTSTRING(1,'('k := 1.0')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ10¨);
+              OUTSTRING(1,'('k := l + m')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ11¨);
+              OUTSTRING(1,'('k := l * m')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ12¨);
+              OUTSTRING(1,'('k := l / m')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ13¨);
+              OUTSTRING(1,'('k := l')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ14¨);
+              OUTSTRING(1,'('x := l')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ15¨);
+              OUTSTRING(1,'('l := y')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ16¨);
+              OUTSTRING(1,'('x := y ** 2')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ17¨);
+              OUTSTRING(1,'('x := y ** 3')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ18¨);
+              OUTSTRING(1,'('x := y ** z')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ19¨);
+              OUTSTRING(1,'('e1Ý1¨ := 1')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ20¨);
+              OUTSTRING(1,'('e2Ý1,1¨ := 1')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ21¨);
+              OUTSTRING(1,'('e3Ý1,1,1¨ := 1')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ22¨);
+              OUTSTRING(1,'('l := e1Ý1¨')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ23¨);
+              OUTSTRING(1,'('begin real a; end')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ24¨);
+              OUTSTRING(1,'('begin real aÝ1:1¨; end')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ25¨);
+              OUTSTRING(1,'('begin real aÝ1:500¨; end')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ26¨);
+              OUTSTRING(1,'('begin real aÝ1:1,1:1¨; end')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ27¨);
+              OUTSTRING(1,'('begin real aÝ1:1,1:1,1:1¨; end')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ28¨);
+              OUTSTRING(1,'('begin goto lab; lab: end')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ29¨);
+              OUTSTRING(1,'('begin switch s := q; goto sÝ1¨; q: end')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ30¨);
+              OUTSTRING(1,'('x := sin(y)')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ31¨);
+              OUTSTRING(1,'('x := cos(y)')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ32¨);
+              OUTSTRING(1,'('x := abs(y)')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ33¨);
+              OUTSTRING(1,'('x := exp(y)')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ34¨);
+              OUTSTRING(1,'('x := ln(y)')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ35¨);
+              OUTSTRING(1,'('x := sqrt(y)')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ36¨);
+              OUTSTRING(1,'('x := arctan(y)')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ37¨);
+              OUTSTRING(1,'('x := sign(y)')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ38¨);
+              OUTSTRING(1,'('x := entier(y)')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ39¨);
+              OUTSTRING(1,'('p0')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ40¨);
+              OUTSTRING(1,'('p1(x)')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ41¨);
+              OUTSTRING(1,'('p2(x,y)')');
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ42¨);
+              OUTSTRING(1,'('p3(x,y,z)')');
+              'COMMENT' print DO loop overhead;
+              SYSACT(1,14,1);
+              OUTINTEGER(1,#TTÝ43¨);
+              OUTSTRING(1,'('DO Loop overhead')');
+         'END';
+
+    'INTEGER' 'PROCEDURE' CPUTIM; 'CODE';
+           'COMMENT' Procedure that returns the current accumulated
+                     job step processor time in microseconds in the
+                     MVS 3.8J environment;
+
+    'COMMENT' Set line-length = 120, Set lines-per-page = 62, OPEN;
+    SYSACT(1,6,120);
+    SYSACT(1,8,62);
+    SYSACT(1,12,1);
+    SYSACT(1,2,10);
+    OUTSTRING (1,'('Algol F Statement Timings')');
+    SYSACT(1,14,1);
+    OUTSTRING(1,'('Picoseconds  Statement')');
+
+    x := y := z := 1.0;
+    l := k := m := 1;
+    e1Ý1¨ := 1;
+    case := 1;
+
+         'COMMENT' Case 01;
+    n := 100000;
+         'COMMENT' n should be given a large enough value
+                   for the resolution of the clock not to
+                   be a limiting factor to the accuracy.
+                   If n is made too large then processor time
+                   is wasted;
+    #TTÝ1¨ := CPUTIM;
+         'COMMENT' #TTÝ1¨ equals program initialization overhead;
+
+         'COMMENT' Case 02;
+    case := case + 1;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := 1.0; x := 1.0; x := 1.0; x := 1.0; x := 1.0;
+              x := 1.0; x := 1.0; x := 1.0; x := 1.0; x := 1.0;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 03;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := 1; x := 1; x := 1; x := 1; x := 1;
+              x := 1; x := 1; x := 1; x := 1; x := 1;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 04;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := y; x := y; x := y; x := y;
+              x := y; x := y; x := y; x := y;
+              x := y; x := y; x := y; x := y;
+              x := y;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 05;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := y + z; x := y + z; x := y + z; x := y + z;
+              x := y + z; x := y + z; x := y + z; x := y + z;
+              x := y + z; x := y + z;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 06;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := y * z; x := y * z; x := y * z; x := y * z;
+              x := y * z; x := y * z; x := y * z; x := y * z;
+              x := y * z; x := y * z;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 07;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := y/z; x := y/z; x := y/z; x := y/z;
+              x := y/z; x := y/z; x := y/z; x := y/z;
+              x := y/z; x := y/z;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 08;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              k := 1; k := 1; k := 1; k := 1;
+              k := 1; k := 1; k := 1; k := 1;
+              k := 1; k := 1;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 09;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              k := 1.0; k := 1.0; k := 1.0; k := 1.0;
+              k := 1.0; k := 1.0; k := 1.0; k := 1.0;
+              k := 1.0; k := 1.0;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 10;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              k := l + m; k := l + m;
+              k := l + m; k := l + m;
+              k := l + m; k := l + m;
+              k := l + m; k := l + m;
+              k := l + m; k := l + m;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 11;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              k := l * m; k := l * m; k := l * m;
+              k := l * m; k := l * m; k := l * m;
+              k := l * m; k := l * m; k := l * m;
+              k := l * m;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 12;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              k := l / m; k := l / m; k := l / m;
+              k := l / m; k := l / m; k := l / m;
+              k := l / m; k := l / m; k := l / m;
+              k := l / m;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 13;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              k := l; k := l; k := l;
+              k := l; k := l; k := l;
+              k := l; k := l; k := l;
+              k := l; k := l; k := l;
+              k := l;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 14;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := l; x := l; x := l; x := l;
+              x := l; x := l; x := l; x := l;
+              x := l; x := l;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 15;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              l := y; l := y; l := y;
+              l := y; l := y; l := y;
+              l := y; l := y; l := y;
+              l := y;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 16;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := y ** 2; x := y ** 2;
+              x := y ** 2; x := y ** 2;
+              x := y ** 2; x := y ** 2;
+              x := y ** 2; x := y ** 2;
+              x := y ** 2; x := y ** 2;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 17;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := y ** 3; x := y ** 3;
+              x := y ** 3; x := y ** 3;
+              x := y ** 3; x := y ** 3;
+              x := y ** 3; x := y ** 3;
+              x := y ** 3; x := y ** 3;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 18;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := y ** z;       x := y ** z;
+              x := y ** z;       x := y ** z;
+              x := y ** z;       x := y ** z;
+              x := y ** z;       x := y ** z;
+              x := y ** z;       x := y ** z;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 19;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              e1Ý1¨ := 1; e1Ý1¨ := 1; e1Ý1¨ := 1;
+              e1Ý1¨ := 1; e1Ý1¨ := 1; e1Ý1¨ := 1;
+              e1Ý1¨ := 1; e1Ý1¨ := 1; e1Ý1¨ := 1;
+              e1Ý1¨ := 1;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 20;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              e2Ý1,1¨:= 1; e2Ý1,1¨:= 1; e2Ý1,1¨:= 1;
+              e2Ý1,1¨:= 1; e2Ý1,1¨:= 1; e2Ý1,1¨:= 1;
+              e2Ý1,1¨:= 1; e2Ý1,1¨:= 1; e2Ý1,1¨:= 1;
+              e2Ý1,1¨:= 1; e2Ý1,1¨:= 1;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 21;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              e3Ý1,1,1¨:= 1; e3Ý1,1,1¨ := 1;
+              e3Ý1,1,1¨:= 1; e3Ý1,1,1¨ := 1;
+              e3Ý1,1,1¨:= 1; e3Ý1,1,1¨ := 1;
+              e3Ý1,1,1¨:= 1; e3Ý1,1,1¨ := 1;
+              e3Ý1,1,1¨:= 1; e3Ý1,1,1¨ := 1;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 22;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              l := e1Ý1¨; l := e1Ý1¨; l := e1Ý1¨;
+              l := e1Ý1¨; l := e1Ý1¨; l := e1Ý1¨;
+              l := e1Ý1¨; l := e1Ý1¨; l := e1Ý1¨;
+              l := e1Ý1¨;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 23;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              'BEGIN'
+                   'REAL' a;
+              'END';
+              'BEGIN'
+                   'REAL' a;
+              'END';
+              'BEGIN'
+                   'REAL' a;
+              'END';
+              'BEGIN'
+                   'REAL' a;
+              'END';
+              'BEGIN'
+                   'REAL' a;
+              'END';
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 24;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              'BEGIN'
+                   'ARRAY' aÝ1:1¨;
+              'END';
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 25;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              'BEGIN'
+                   'ARRAY' aÝ1:500¨;
+              'END';
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 26;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              'BEGIN'
+                   'ARRAY' aÝ1:1,1:1¨;
+              'END';
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 27;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              'BEGIN'
+                   'ARRAY' aÝ1:1,1:1,1:1¨;
+              'END';
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 28;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              'GOTO' l0;
+              l0: ;
+              'GOTO' l1;
+              l1: ;
+              'GOTO' l2;
+              l2: ;
+              'GOTO' l3;
+              l3: ;
+              'GOTO' l4;
+              l4: ;
+              'GOTO' l5;
+              l5: ;
+              'GOTO' l6;
+              l6: ;
+              'GOTO' l7;
+              l7: ;
+              'GOTO' l8;
+              l8: ;
+              'GOTO' l9;
+              l9: ;
+              p0;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 29;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              'BEGIN'
+                   'SWITCH' s := q; 'GOTO' sÝ1¨;
+                   q:  ;
+              'END';
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 30;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := sin(y);
+              x := sin(y);
+              x := sin(y);
+              x := sin(y);
+              x := sin(y);
+              x := sin(y);
+              x := sin(y);
+              x := sin(y);
+              x := sin(y);
+              x := sin(y);
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 31;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := cos(y);
+              x := cos(y);
+              x := cos(y);
+              x := cos(y);
+              x := cos(y);
+              x := cos(y);
+              x := cos(y);
+              x := cos(y);
+              x := cos(y);
+              x := cos(y);
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 32;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := abs(y); x := abs(y); x := abs(y);
+              x := abs(y); x := abs(y); x := abs(y);
+              x := abs(y); x := abs(y); x := abs(y);
+              x := abs(y);
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 33;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := exp(y);
+              x := exp(y);
+              x := exp(y);
+              x := exp(y);
+              x := exp(y);
+              x := exp(y);
+              x := exp(y);
+              x := exp(y);
+              x := exp(y);
+              x := exp(y);
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 34;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := ln(y);
+              x := ln(y);
+              x := ln(y);
+              x := ln(y);
+              x := ln(y);
+              x := ln(y);
+              x := ln(y);
+              x := ln(y);
+              x := ln(y);
+              x := ln(y);
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 35;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := sqrt(y);
+              x := sqrt(y);
+              x := sqrt(y);
+              x := sqrt(y);
+              x := sqrt(y);
+              x := sqrt(y);
+              x := sqrt(y);
+              x := sqrt(y);
+              x := sqrt(y);
+              x := sqrt(y);
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 36;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := arctan(y);
+              x := arctan(y);
+              x := arctan(y);
+              x := arctan(y);
+              x := arctan(y);
+              x := arctan(y);
+              x := arctan(y);
+              x := arctan(y);
+              x := arctan(y);
+              x := arctan(y);
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 37;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := sign(y); x := sign(y); x := sign(y);
+              x := sign(y); x := sign(y); x := sign(y);
+              x := sign(y); x := sign(y); x := sign(y);
+              x := sign(y);
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 38;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              x := entier(y); x := entier(y);
+              x := entier(y); x := entier(y);
+              x := entier(y); x := entier(y);
+              x := entier(y); x := entier(y);
+              x := entier(y); x := entier(y);
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 39;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              p0;
+              p0;
+              p0;
+              p0;
+              p0;
+              p0;
+              p0;
+              p0;
+              p0;
+              p0;
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 40;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              p1(x);
+              p1(x);
+              p1(x);
+              p1(x);
+              p1(x);
+              p1(x);
+              p1(x);
+              p1(x);
+              p1(x);
+              p1(x);
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 41;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+              p2(x,y);
+              p2(x,y);
+              p2(x,y);
+              p2(x,y);
+              p2(x,y);
+              p2(x,y);
+              p2(x,y);
+              p2(x,y);
+              p2(x,y);
+              p2(x,y);
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 42;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         'BEGIN'
+             p3(x,y,z);
+             p3(x,y,z);
+             p3(x,y,z);
+             p3(x,y,z);
+             p3(x,y,z);
+             p3(x,y,z);
+             p3(x,y,z);
+             p3(x,y,z);
+             p3(x,y,z);
+             p3(x,y,z);
+         'END';
+    #TTÝcase¨ := CPUTIM;
+
+    case := case + 1;
+         'COMMENT' Case 43;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         ;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         ;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         ;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         ;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         ;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         ;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         ;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         ;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         ;
+    'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO'
+         ;
+    #TTÝcase¨ := CPUTIM;
+
+    printt;
+
+    'END';
+/*
+//ASMTIM   EXEC ASMFCL
+//ASM.SYSLIB DD DSN=SYS1.MACLIB,DISP=SHR
+//           DD DSN=SYS1.AMODGEN,DISP=SHR
+//ASM.SYSIN  DD *
+CPU         TITLE 'CPUTIM - ALGOL F FUNCTION TO RETURN ACCUMULATED STEPX
+                CPU TIME'
+*
+*        FUNCTION -
+*        RETURN THE ACCUMULATED STEP CPU TIME IN MICROSECONDS WHEN
+*        CALLED AS AN ALGOL F FUNCTION DECLARED AS -
+*        'INTEGER' 'PROCEDURE' CPUTIM; 'CODE';
+*        THIS ALGOL F FUNCTION IS DESIGNED TO OPERATE IN THE
+*        MVS 3.8 ENVIRONMENT
+*
+*        ENVIRONMENT -
+*        SEE OS/360 ALGOL F PROGRAMMERS GUIDE GC33-4000 FOR A
+*        DESCRIPTION OF THE INVOKING ENVIRONMENT
+*
+*        STATUS -
+*        THIS FUNCTION IS SERIALLY REUSEABLE BUT NOT
+*        RECURSIVE OR REENTRANT
+*
+CPUTIM   CSECT
+*
+*        FSA OFFSETS
+*
+CAP1     EQU   X'0D4'
+CAP2     EQU   X'0D8'
+PROLOGFP EQU   X'0DC'
+RETPROG  EQU   X'0E4'
+EPILOGP  EQU   X'0E8'
+CSWE1    EQU   X'0F4'
+VALUCALL EQU   X'118'
+*
+         USING PBTAB,R11
+*
+*        PROGRAM BLOCK TABLE
+*
+PBTAB    DC    A(0)
+         DC    CL4'CPUT'           NAME
+         DC    A(0)
+         DC    H'32'               L'DSA FOR TYPED PROCEDURE (FUNCTION)
+         DC    X'08'               TYPE PROCEDURE INTEGER
+         DC    AL1(0)              NUMBER OF FORMAL PARAMETERS
+*
+*        ENTRY BLOCK
+*
+CPUENT   DC    A(PBTAB)
+         DC    A(0)
+         DC    A(CPUCODE)
+*
+*        ESTABLISH ADDRESSABILITY TO THE PSA, ASCB
+*
+         USING PSA,R0
+         USING ASCB,R4
+*
+CPUCODE  B     CPUCODEA
+*
+         DC    AL1(L'ID)
+ID       DC    C'CPUTIM &SYSDATE &SYSTIME'
+*
+CPUCODEA STM   R14,R10,SAVEAREA+12
+         L     R4,PSAAOLD          R4 -> CURRENT ASCB
+         LM    R2,R3,ASCBEJST      ACCUM STEP TCB CPU TIME
+         AL    R3,ASCBSRBT+4       ADD ACCUM SRB CPU TIME
+         BC    12,CPUCODEB         OVERFLOW ? NO, BRANCH
+         LA    R2,1(,R2)           YES, ADD CARRY
+CPUCODEB A     R2,ASCBSRBT         TOTAL CPU TIME (TCB + SRB)
+         SRDL  R2,(63-51)          SHIFT TO CONVERT TO MICROSECONDS
+         ST    R3,24(,R10)         STORE RESULT IN DSA+24
+         LM    R14,R10,SAVEAREA+12
+         B     EPILOGP(,R13)       RETURN VIA EPILOG CODE IN FSA
+*
+SAVEAREA DC    18F'0'
+*
+         PRINT NOGEN
+*
+*        PREFIXED SAVE AREA
+*
+         IHAPSA
+*
+*        ADDRESS SPACE CONTROL BLOCK
+*
+         IHAASCB
+*
+         PRINT GEN
+*
+*        REGISTER EQUATES
+*
+         IEZREGS
+*
+         END CPUENT
+/*
+//LKED.SYSLMOD DD DSN=&&GOSET(CPUTIM),DISP=(OLD,PASS)
+//GOIVP4  EXEC PGM=GO
+//STEPLIB  DD  DSN=&&GOSET,DISP=(OLD,PASS)
+//ALGLDD01 DD  SYSOUT=*
+//SYSPRINT DD  SYSOUT=*
+//SYSUT1   DD  UNIT=VIO,SPACE=(1024,(20,10))
+//
+./ ADD NAME=INSTALL  0201-17365-17365-1200-00090-00090-00000-RELEASE 00
+//T1ALG   JOB  111,'ALGOL F',          <-- CUSTOMIZE FOR INSTALLATION
+//             CLASS=S,MSGCLASS=C,     <-- CUSTOMIZE FOR INSTALLATION
+//             REGION=4096K,COND=(0,NE),MSGLEVEL=(1,1)
+//*
+//*            RESTORE LOAD MODULE LIBRARIES FOR
+//*            ALGOL F
+//*            360S-AL-531 ALGOL F COMPILER
+//*                 AND
+//*            360S-LM-532 ALGOL F LIBRARY
+//*            INDEPENDENT COMPONENT RELEASE
+//*
+//*            BEFORE SUBMITTING THIS JOB CUSTOMIZE THE SYMBOLIC
+//*            PARAMETERS TO CONFORM TO LOCAL STANDARDS
+//*
+//*            NOTE -
+//*            THIS JOB WILL ISSUE TWO REQUESTS FOR THE
+//*            MASTER CATALOG PASSWORD TO DELETE AND RE-ALLOCATE
+//*            SYS1.ALGLIB
+//*
+//INSTALL PROC OLINK='SYS2.LINKLIB',   <-- TARGET COMPILER LINKLIB
+//             OLIB='SYS1.ALGLIB',     <-- TARGET RESIDENT LIBRARY
+//             OLUNIT='3350',          <-- TARGET RESIDENT LIBRARY
+//             OLVOL='MVSRES',         <-- TARGET RESIDENT LIBRARY
+//             OPROC='SYS2.PROCLIB',   <-- TARGET PROCLIB
+//             OSAMP='SYS1.SAMPLIB',   <-- TARGET IVP SAMPLIB
+//             SOUT='*',               SYSOUT CLASS, DLFT TO MSGCLASS
+//             THLQ='ALGOL',           ADD ADDTNL PREFIX IF REQUIRED
+//             TUNIT='3400-6',         TAPE UNIT FOR DISTRIBUTION TAPE
+//             TVOL='ALGOLF'           VOLSER OF DISTRIBUTION TAPE
+//*
+//*********************************************************************
+//*
+//*            NAME: INSTALL ALGOL F ICR
+//*
+//*            DESC: INSTALL NEW VERSION OF ALGOL F COMPILER
+//*                  AND RUN TIME LIBRARY FROM DISTRIBUTION TAPE
+//*
+//*********************************************************************
+//*
+//*            DELETE SYS1.ALGLIB
+//*
+//DELETE  EXEC PGM=IDCAMS
+//SYSPRINT DD  SYSOUT=*
+//SYSIN    DD  DUMMY                   <-- OVERRIDDEN WHEN PROC INVOKED
+//*
+//*            LOAD ALL DATASETS
+//*
+//LOAD    EXEC PGM=IEBCOPY,REGION=1024K
+//SYSPRINT DD  SYSOUT=&SOUT
+//*
+//INCMOD   DD  DSN=&THLQ..F.COMPILER.LOADLIB,
+//             UNIT=&TUNIT,VOL=(PRIVATE,RETAIN,SER=&TVOL),
+//             LABEL=(2,SL,EXPDT=98000),DISP=(OLD,PASS)
+//OUTCMOD  DD  DSN=&OLINK,DISP=SHR              <--- TARGET LIB
+//*
+//INRTMOD  DD  DSN=&THLQ..F.RUNTIME.LOADLIB,
+//             UNIT=&TUNIT,VOL=(PRIVATE,RETAIN,SER=&TVOL),
+//             LABEL=(3,SL,EXPDT=98000),DISP=(OLD,PASS)
+//OUTRTMOD DD  DSN=&OLIB,UNIT=&OLUNIT,          <--- TARGET LIB
+//             VOL=SER=&OLVOL,SPACE=(TRK,(15,5,32)),
+//             DISP=(,CATLG)
+//*
+//INCNTL   DD  DSN=&THLQ..F.COMPILER.CNTL,DISP=SHR
+//OUTPROC  DD  DSN=&OPROC,DISP=SHR              <--- TARGET LIB
+//*
+//OUTSAMP  DD  DSN=&OSAMP,DISP=SHR              <--- TARGET LIB
+//*
+//        PEND
+//        EXEC INSTALL
+//DELETE.SYSIN DD *
+  DELETE SYS1.ALGLIB PURGE
+  SET LASTCC = 0
+/*
+//LOAD.SYSIN   DD *
+    COPY INDD=((INCMOD,R)),OUTDD=OUTCMOD
+    COPY INDD=((INRTMOD,R)),OUTDD=OUTRTMOD
+    COPY INDD=((INCNTL,R)),OUTDD=OUTPROC
+    SELECT MEMBER=(ALGOFC)
+    SELECT MEMBER=(ALGOFCG)
+    SELECT MEMBER=(ALGOFCL)
+    SELECT MEMBER=(ALGOFCLG)
+    SELECT MEMBER=(ASMPROJ)
+    COPY INDD=((INCNTL,R)),OUTDD=OUTSAMP
+    SELECT MEMBER=(IEXOPTNS)
+    SELECT MEMBER=(IEXSAMP1)
+    SELECT MEMBER=(IEXSAMP2)
+    SELECT MEMBER=(IEXSAMP3)
+    SELECT MEMBER=(IEXSAMP4)
+/*
+//
+./ ADD NAME=INSTCNTL 0201-17365-17365-1200-00024-00024-00000-RELEASE 00
+//T1INST  JOB  111,'INSTALL ALGOL CNTL', <-- CUSTOMIZE FOR INSTALLATION
+//             CLASS=S,MSGCLASS=C        <-- CUSTOMIZE FOR INSTALLATION
+//*
+//*
+//*********************************************************************
+//*
+//*            RESTORE ALGOL F LEVEL 2.1 CNTL DATA SET
+//*            360S-AL-531 ALGOL F COMPILER
+//*                 AND
+//*            360S-LM-532 ALGOL F LIBRARY
+//*            INDEPENDENT COMPONENT RELEASE
+//*
+//*********************************************************************
+//*
+//CNTL    EXEC PGM=IEBCOPY
+//SYSPRINT DD  SYSOUT=*
+//SYSUT1   DD  DSN=ALGOL.F.COMPILER.CNTL,UNIT=3400-6,VOL=SER=ALGOLF,
+//             DISP=OLD,LABEL=(1,SL)
+//SYSUT2   DD  DSN=ALGOL.F.COMPILER.CNTL,
+//             UNIT=3350,VOL=SER=MVSDLB,DISP=(,CATLG,DELETE),
+//             DCB=(DSORG=PO,BLKSIZE=3600,LRECL=80,RECFM=FB),
+//             SPACE=(TRK,(60,10,36))
+//SYSIN    DD  DUMMY
+//
+./ ADD NAME=INSTOPT  0201-17365-17365-1200-00057-00057-00000-RELEASE 00
+//T1SRC   JOB  111,'ALGOL F SRC',      <-- CUSTOMIZE FOR INSTALLATION
+//             CLASS=S,MSGCLASS=C      <-- CUSTOMIZE FOR INSTALLATION
+//*
+//*********************************************************************
+//*
+//*       INSTALL THE SOURCE DISTRIBUTION LIBRARIES FOR :-
+//*
+//*       IBM ALGOL F LEVEL 2.1
+//*
+//*       360S-AL-531 ALGOL F COMPILER
+//*            AND
+//*       360S-LM-532 ALGOL F LIBRARY
+//*
+//*********************************************************************
+//*
+//*********************************************************************
+//*
+//*      DELETE THE SOURCE LIBRARY DATA SETS
+//*
+//*********************************************************************
+//*
+//DELETE  EXEC PGM=IDCAMS
+//SYSPRINT DD  DUMMY
+//SYSIN    DD  *
+   DELETE ALGOL.F.COMPILER.ASM
+   DELETE ALGOL.F.COMPILER.MACLIB
+   DELETE ALGOL.F.RUNTIME.ASM
+   DELETE ALGOL.F.RUNTIME.MACLIB
+   SET MAXCC = 0
+/*
+//ALGSRC  EXEC PGM=IEBCOPY
+//SYSPRINT DD  SYSOUT=*
+//*        INPUT DATA SETS
+//INCASM   DD  DSN=ALGOL.F.COMPILER.ASM,LABEL=(4,SL),
+//             UNIT=3400-6,VOL=SER=ALGOLF,DISP=(OLD,PASS)
+//INCMAC   DD  DSN=ALGOL.F.COMPILER.MACLIB,LABEL=(5,SL),
+//             UNIT=3400-6,VOL=SER=ALGOLF,DISP=(OLD,PASS)
+//INRTASM  DD  DSN=ALGOL.F.RUNTIME.ASM,LABEL=(6,SL),
+//             UNIT=3400-6,VOL=SER=ALGOLF,DISP=(OLD,PASS)
+//INRTMAC  DD  DSN=ALGOL.F.RUNTIME.MACLIB,LABEL=(7,SL),
+//             UNIT=3400-6,VOL=SER=ALGOLF,DISP=(OLD,PASS)
+//*        OUTPUT DATA SETS
+//OUTCASM  DD  DSN=ALGOL.F.COMPILER.ASM,DISP=(,CATLG),
+//             UNIT=3350,VOL=SER=MVSDLB,SPACE=(TRK,(120,30,36)) <----
+//OUTCMAC  DD  DSN=ALGOL.F.COMPILER.MACLIB,DISP=(,CATLG),
+//             UNIT=3350,VOL=SER=MVSDLB,SPACE=(TRK,(30,30,36))  <----
+//OUTRTASM DD  DSN=ALGOL.F.RUNTIME.ASM,DISP=(,CATLG),
+//             UNIT=3350,VOL=SER=MVSDLB,SPACE=(TRK,(90,30,36))  <----
+//OUTRTMAC DD  DSN=ALGOL.F.RUNTIME.MACLIB,DISP=(,CATLG),
+//             UNIT=3350,VOL=SER=MVSDLB,SPACE=(TRK,(30,30,36))  <----
+//SYSIN    DD  *
+    COPY INDD=INCASM,OUTDD=OUTCASM
+    COPY INDD=INCMAC,OUTDD=OUTCMAC
+    COPY INDD=INRTASM,OUTDD=OUTRTASM
+    COPY INDD=INRTMAC,OUTDD=OUTRTMAC
+/*
+//
+./ ADD NAME=LINKC    0201-17365-17365-1200-00116-00116-00000-RELEASE 00
+//T1LCP   JOB  111,'LINK ALGOL F',     <-- CUSTOMIZE FOR INSTALLATION
+//             CLASS=S,MSGCLASS=C      <-- CUSTOMIZE FOR INSTALLATION
+//*
+//*********************************************************************
+//*                                                                   *
+//*       LINK EDIT THE ALGOL F COMPILER                              *
+//*                                                                   *
+//*********************************************************************
+//*
+//*********************************************************************
+//*
+//*      DELETE THE LOAD MODULE LIBRARY FOR THE ALGOL F COMPILER
+//*
+//*********************************************************************
+//*
+//DELETE   EXEC PGM=IDCAMS
+//SYSPRINT  DD DUMMY
+//SYSIN     DD *
+   DELETE ALGOL.F.COMPILER.LOADLIB
+   SET MAXCC = 0
+/*
+//*
+//********************************************************************
+//*
+//*        GENERATE LINKAGE EDITOR BANNER
+//*
+//********************************************************************
+//*
+//GENER   EXEC PGM=IEBGENER
+//SYSPRINT  DD DUMMY
+//SYSIN     DD DUMMY
+//SYSUT2    DD SYSOUT=A,DCB=(RECFM=FA,BLKSIZE=80,LRECL=80)
+//SYSUT1    DD *
+1\\\LINKEDIT             LINK EDIT ALGOL F COMPILER
+/*
+//*
+//*********************************************************************
+//*
+//*        LINK EDIT THE ALGOL F COMPILER
+//*
+//*********************************************************************
+//*
+//ALGOLF  EXEC PGM=IEWL,PARM='LIST,LET,MAP,NCAL',REGION=1024K
+//SYSPRINT DD  SYSOUT=A
+//SYSUT1   DD  UNIT=VIO,SPACE=(TRK,(30,10))
+//OBJECT   DD  DSN=ALGOL.F.COMPILER.OBJ,DISP=SHR
+//SYSLMOD  DD  DSN=ALGOL.F.COMPILER.LOADLIB,
+//             UNIT=3350,VOL=SER=MVSDLB,
+//             SPACE=(TRK,(30,30,10)),
+//             DISP=(,CATLG)
+//SYSLIN   DD  *
+         INCLUDE OBJECT(OPTIONS)
+         INCLUDE OBJECT(IEX00)
+         ENTRY   IEX00000
+         ALIAS   ALGOL
+         IDENTIFY IEX00000('360SAL531 V02 M01 ALGOL F COMPILER')
+         IDENTIFY IEX00001('360SAL531 V02 M01 ALGOL F COMPILER')
+         NAME    IEX00(R)
+         INCLUDE OBJECT(IEX10)
+         ALIAS   IEX10000
+         ENTRY   IEX10000
+         IDENTIFY IEX10000('360SAL531 V02 M01 ALGOL F COMPILER')
+         IDENTIFY IEX10001('360SAL531 V02 M01 ALGOL F COMPILER')
+         NAME    IEX10(R)
+         INCLUDE OBJECT(IEX11)
+         ALIAS   IEX11000
+         ENTRY   IEX11000
+         IDENTIFY IEX11000('360SAL531 V02 M01 ALGOL F COMPILER')
+         NAME    IEX11(R)
+         INCLUDE OBJECT(IEX20)
+         ALIAS   IEX20000
+         ENTRY   IEX20000
+         IDENTIFY IEX20000('360SAL531 V02 M01 ALGOL F COMPILER')
+         NAME    IEX20(R)
+         INCLUDE OBJECT(IEX21)
+         INCLUDE OBJECT(IEX21M)
+         ENTRY   IEX21000
+         ALIAS   IEX21000
+         IDENTIFY IEX21000('360SAL531 V02 M01 ALGOL F COMPILER')
+         IDENTIFY IEX21M00('360SAL531 V02 M01 ALGOL F COMPILER')
+         IDENTIFY IEX60000('360SAL531 V02 M01 ALGOL F COMPILER')
+         NAME    IEX21(R)
+         INCLUDE OBJECT(IEX30)
+         ALIAS   IEX30000
+         ENTRY   IEX30000
+         IDENTIFY IEX30000('360SAL531 V02 M01 ALGOL F COMPILER')
+         NAME    IEX30(R)
+         INCLUDE OBJECT(IEX31)
+         INCLUDE OBJECT(IEX31M)
+         ENTRY   IEX31000
+         ALIAS   IEX31000
+         IDENTIFY IEX31000('360SAL531 V02 M01 ALGOL F COMPILER')
+         IDENTIFY IEX31M00('360SAL531 V02 M01 ALGOL F COMPILER')
+         IDENTIFY IEX60000('360SAL531 V02 M01 ALGOL F COMPILER')
+         NAME    IEX31(R)
+         INCLUDE OBJECT(IEX40)
+         ALIAS   IEX40000
+         ENTRY   IEX40000
+         IDENTIFY IEX40000('360SAL531 V02 M01 ALGOL F COMPILER')
+         NAME    IEX40(R)
+         INCLUDE OBJECT(IEX50)
+         ALIAS   IEX50000
+         ENTRY   IEX50000
+         IDENTIFY IEX50000('360SAL531 V02 M01 ALGOL F COMPILER')
+         NAME    IEX50(R)
+         INCLUDE OBJECT(IEX51)
+         INCLUDE OBJECT(IEX51M)
+         ENTRY   IEX51000
+         ALIAS   IEX51000,IEX51002,IEX51ER1,IEX51ER2
+         IDENTIFY IEX51000('360SAL531 V02 M01 ALGOL F COMPILER')
+         IDENTIFY IEX51002('360SAL531 V02 M01 ALGOL F COMPILER')
+         IDENTIFY IEX51M00('360SAL531 V02 M01 ALGOL F COMPILER')
+         IDENTIFY IEX60000('360SAL531 V02 M01 ALGOL F COMPILER')
+         NAME    IEX51(R)
+/*
+//
+./ ADD NAME=LINKRT   0201-17365-17365-1200-00198-00198-00000-RELEASE 00
+//T1LRT   JOB  111,'LINK ALGOL F',     <-- CUSTOMIZE FOR INSTALLATION
+//             CLASS=S,MSGCLASS=C      <-- CUSTOMIZE FOR INSTALLATION
+//*
+//*********************************************************************
+//*                                                                   *
+//*        LINK EDIT THE ALGOL F RUN TIME LIBRARY                     *
+//*                                                                   *
+//*********************************************************************
+//*
+//*********************************************************************
+//*
+//*      DELETE THE LOAD MODULE LIBRARY FOR THE ALGOL F RUN TIME LIB
+//*
+//*********************************************************************
+//*
+//DELETE   EXEC PGM=IDCAMS
+//SYSPRINT  DD DUMMY
+//SYSIN     DD *
+      DELETE  ALGOL.F.RUNTIME.LOADLIB
+      SET LASTCC = 0
+/*
+//*
+//********************************************************************
+//*
+//*        GENERATE LINKAGE EDITOR BANNER
+//*
+//********************************************************************
+//*
+//GENER   EXEC PGM=IEBGENER
+//SYSPRINT  DD DUMMY
+//SYSIN     DD DUMMY
+//SYSUT2    DD SYSOUT=A,DCB=(RECFM=FA,BLKSIZE=80,LRECL=80)
+//SYSUT1    DD *
+1\\\LINKEDIT             LINK EDIT ALGOL F RUN TIME LIBRARY
+/*
+//*
+//*********************************************************************
+//*
+//*        LINK EDIT ALGOL F RUN TIME LIBRARY
+//*
+//*********************************************************************
+//*
+//ALGOLRT EXEC PGM=IEWL,PARM='LIST,LET,MAP,NCAL',REGION=1024K
+//SYSPRINT DD  SYSOUT=A
+//SYSUT1   DD  UNIT=VIO,SPACE=(TRK,(30,10))
+//OBJECT   DD  DSN=ALGOL.F.RUNTIME.OBJ,DISP=SHR
+//SYSLMOD  DD  DSN=ALGOL.F.RUNTIME.LOADLIB,
+//             UNIT=3350,VOL=SER=MVSDLB,
+//             SPACE=(TRK,(30,30,32)),
+//             DISP=(,CATLG)
+//SYSLIN   DD  *
+         INCLUDE  OBJECT(IHIERR)
+         INCLUDE  OBJECT(IHIERM)
+         IDENTIFY IHIERROR('360SLM532 V02 M01 ALGOL F LIBRARY')
+         IDENTIFY IHIERMSG('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ENTRY    IHIERROR
+         ALIAS    IHIERROR
+         NAME     IHIERR(R)
+         INCLUDE  OBJECT(IHIFDD)
+         IDENTIFY IHIFDDXP('360SLM532 V02 M01 ALGOL F LIBRARY')
+         NAME     IHIFDD(R)
+         INCLUDE  OBJECT(IHIFDI)
+         IDENTIFY IHIFDIXP('360SLM532 V02 M01 ALGOL F LIBRARY')
+         NAME     IHIFDI(R)
+         INCLUDE  OBJECT(IHIFII)
+         IDENTIFY IHIFIIXP('360SLM532 V02 M01 ALGOL F LIBRARY')
+         NAME     IHIFII(R)
+         INCLUDE  OBJECT(IHIFRI)
+         IDENTIFY IHIFRIXP('360SLM532 V02 M01 ALGOL F LIBRARY')
+         NAME     IHIFRI(R)
+         INCLUDE  OBJECT(IHIFRR)
+         IDENTIFY IHIFRRXP('360SLM532 V02 M01 ALGOL F LIBRARY')
+         NAME     IHIFRR(R)
+         INCLUDE  OBJECT(IHIFSA)
+         IDENTIFY IHIFSARA('360SLM532 V02 M01 ALGOL F LIBRARY')
+         IDENTIFY IHIFSARB('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHIFSAIN
+         NAME     IHIFSA(R)
+         INCLUDE  OBJECT(IHIGPR)
+         IDENTIFY IHIGPRTN('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHIGPRCL
+         ALIAS    IHIGPRGT
+         ALIAS    IHIGPRPT
+         NAME     IHIGPR(R)
+         INCLUDE  OBJECT(IHIIAR)
+         IDENTIFY IHIIARTN('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHIIARRT
+         ALIAS    IHIIARRY
+         NAME     IHIIAR(R)
+         INCLUDE  OBJECT(IHIIBA)
+         IDENTIFY IHIIBARR('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHIIBARR
+         NAME     IHIIBA(R)
+         INCLUDE  OBJECT(IHIIBO)
+         IDENTIFY IHIIBOOL('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHIIBOAR
+         ALIAS    IHIIBOOL
+         NAME     IHIIBO(R)
+         INCLUDE  OBJECT(IHIIDE)
+         IDENTIFY IHIIDECM('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHIIDEAI
+         ALIAS    IHIIDEII
+         ALIAS    IHIIDEIR
+         NAME     IHIIDE(R)
+         INCLUDE  OBJECT(IHIIOR)
+         IDENTIFY IHIIORTN('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHIIOREN
+         ALIAS    IHIIOREV
+         ALIAS    IHIIORNX
+         ALIAS    IHIIOROP
+         NAME     IHIIOR(R)
+         INCLUDE  OBJECT(IHIISY)
+         IDENTIFY IHIISYMB('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHIISYMB
+         NAME     IHIISY(R)
+         INCLUDE  OBJECT(IHILAT)
+         IDENTIFY IHILATAN('360SLM532 V02 M01 ALGOL F LIBRARY')
+         NAME     IHILAT(R)
+         INCLUDE  OBJECT(IHILEX)
+         IDENTIFY IHILEXPT('360SLM532 V02 M01 ALGOL F LIBRARY')
+         NAME     IHILEX(R)
+         INCLUDE  OBJECT(IHILLO)
+         IDENTIFY IHILLOGM('360SLM532 V02 M01 ALGOL F LIBRARY')
+         NAME     IHILLO(R)
+         INCLUDE  OBJECT(IHILOR)
+         IDENTIFY IHILOREA('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHILORAR
+         ALIAS    IHILOREL
+         NAME     IHILOR(R)
+         INCLUDE  OBJECT(IHILSC)
+         IDENTIFY IHILSCSN('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHILSCC
+         ALIAS    IHILSCS
+         NAME     IHILSC(R)
+         INCLUDE  OBJECT(IHILSQ)
+         IDENTIFY IHILSQRT('360SLM532 V02 M01 ALGOL F LIBRARY')
+         NAME     IHILSQ(R)
+         INCLUDE  OBJECT(IHIOAR)
+         IDENTIFY IHIOARRY('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHIOARRY
+         NAME     IHIOAR(R)
+         INCLUDE  OBJECT(IHIOBA)
+         IDENTIFY IHIOBARR('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHIOBARR
+         NAME     IHIOAR(R)
+         INCLUDE  OBJECT(IHIOBO)
+         IDENTIFY IHIOBOOL('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHIOBOAR
+         ALIAS    IHIOBOOL
+         NAME     IHIOBO(R)
+         INCLUDE  OBJECT(IHIOIN)
+         IDENTIFY IHIOINTE('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHIOINAR
+         ALIAS    IHIOINTG
+         NAME     IHIOIN(R)
+         INCLUDE  OBJECT(IHIOST)
+         IDENTIFY IHIOSTRG('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHIOSTRG
+         NAME     IHIOST(R)
+         INCLUDE  OBJECT(IHIOSY)
+         IDENTIFY IHIOSYMB('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHIOSYMB
+         NAME     IHIOSY(R)
+         INCLUDE  OBJECT(IHIOTA)
+         IDENTIFY IHIOTARR('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHIOTARR
+         NAME     IHIOTA(R)
+         INCLUDE  OBJECT(IHIPTT)
+         IDENTIFY IHIPTTAB('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHIPTTAB
+         NAME     IHIPTT(R)
+         INCLUDE  OBJECT(IHISAT)
+         IDENTIFY IHISATAN('360SLM532 V02 M01 ALGOL F LIBRARY')
+         NAME     IHISAT(R)
+         INCLUDE  OBJECT(IHISEX)
+         IDENTIFY IHISEXPT('360SLM532 V02 M01 ALGOL F LIBRARY')
+         NAME     IHISEX(R)
+         INCLUDE  OBJECT(IHISLO)
+         NAME     IHISLO(R)
+         INCLUDE  OBJECT(IHISOR)
+         IDENTIFY IHISOREA('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHISORAR
+         ALIAS    IHISOREL
+         NAME     IHISOR(R)
+         INCLUDE  OBJECT(IHISSC)
+         IDENTIFY IHISSCSN('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHISSCS
+         ALIAS    IHISSCC
+         NAME     IHISSC(R)
+         INCLUDE  OBJECT(IHISSQ)
+         IDENTIFY IHISSQRT('360SLM532 V02 M01 ALGOL F LIBRARY')
+         NAME     IHISSQ(R)
+         INCLUDE  OBJECT(IHISYS)
+         IDENTIFY IHISYSCT('360SLM532 V02 M01 ALGOL F LIBRARY')
+         ALIAS    IHISYSCT
+         NAME     IHISYS(R)
+/*
+//
